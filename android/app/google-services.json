@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21729701777",
+    "project_id": "notification-android-and-ios",
+    "storage_bucket": "notification-android-and-ios.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21729701777:android:de388151e296f080303430",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2nfvtiLE9dYMso7EnIeNsHcqE9lQ8CnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
