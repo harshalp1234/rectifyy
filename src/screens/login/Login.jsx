@@ -919,7 +919,7 @@ const Login = (props) => {
 
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}
-            style={{ position: "absolute", right: 25, top: 34 }}
+            style={{ position: "absolute", right: 25, top: 31 }}
           >
             {/* <Icon
               name={showPassword ? "eye" : "eye-slash"}

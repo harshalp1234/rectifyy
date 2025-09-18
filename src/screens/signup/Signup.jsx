@@ -916,6 +916,7 @@
 //   },
 // });
 
+
 import React, { useState, useRef } from "react";
 import moment from "moment";
 import {
@@ -1082,7 +1083,7 @@ const Signup = (props) => {
           />
           <TouchableOpacity
             onPress={() => setSecureText(!secureText)}
-            style={{ position: "absolute", right: 25, top: 35 }}
+            style={{ position: "absolute", right: 25, top: 31 }}
           >
             <Icon name={secureText ? "eye-off" : "eye"} size={20} color="#555" />
           </TouchableOpacity>
@@ -1105,7 +1106,7 @@ const Signup = (props) => {
           />
           <TouchableOpacity
             onPress={() => setSecureConfirmText(!secureConfirmText)}
-            style={{ position: "absolute", right: 25, top: 35 }}
+            style={{ position: "absolute", right: 25, top: 31 }}
           >
             <Icon
               name={secureConfirmText ? "eye-off" : "eye"}
