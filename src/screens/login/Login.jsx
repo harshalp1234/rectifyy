@@ -802,6 +802,241 @@
 // });
 
 
+// import React, { useState, useRef } from "react";
+// import {
+//   StyleSheet,
+//   Text,
+//   View,
+//   Image,
+//   KeyboardAvoidingView,
+//   TouchableOpacity,
+//   TextInput,
+//   ActivityIndicator,
+// } from "react-native";
+// // import Icon from "react-native-vector-icons/FontAwesome";
+// import Custombutton from "../../components/Custombutton";
+// import Toast from "react-native-toast-message";
+// import { useDispatch, useSelector } from "react-redux";
+// import { login } from "../../slice/AuthSlice";
+// import { SafeAreaView } from "react-native";
+// import Icon from "react-native-vector-icons/Ionicons";
+// import LinearGradient from "react-native-linear-gradient";
+
+
+// const Login = (props) => {
+//   const passwordRef = useRef()
+//   const authState = useSelector((state) => state.auth);
+//   console.log(authState)
+//   const dispatch = useDispatch();
+//   const { user } = useSelector((state) => state.auth); // persisted user {email, password}
+
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [showPassword, setShowPassword] = useState(false);
+
+//   // ✅ Regex rules
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   const passwordRegex =
+//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+//   const buttonPress = () => {
+//     if (!email) return Toast.show({ type: "error", text1: "Enter Email" });
+//     if (!emailRegex.test(email))
+//       return Toast.show({ type: "error", text1: "Please enter a valid email" });
+//     if (!password) return Toast.show({ type: "error", text1: "Enter Password" });
+//     if (!passwordRegex.test(password))
+//       return Toast.show({
+//         type: "error",
+//         text1: "Password must include uppercase, lowercase, number & special char",
+//       });
+
+//     // ✅ Check persisted user from redux
+//     if (!user) {
+//       return Toast.show({ type: "error", text1: "No account found. Please sign up." });
+//     }
+
+//     if (email === user.email && password === user.password) {
+//       dispatch(login()); // just flips isAuthenticated = true
+//       Toast.show({ type: "success", text1: "Welcome back 👋" });
+//       // props.navigation.navigate("Home");  <-- optional
+//     } else {
+//       Toast.show({ type: "error", text1: "Invalid email or password" });
+//     }
+//   };
+
+//   // if (isLoading) {
+//   //   return (
+//   //     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//   //       <ActivityIndicator size="large" />
+//   //     </View>
+//   //   );
+//   // }
+
+
+//   const handleSignup = () => props.navigation.navigate("Signup");
+
+//   return (
+//     <SafeAreaView style={{ flex: 1, backgroundColor: "#4d6fa9" }} edges={["top", "left", "right"]}>
+//       <KeyboardAvoidingView style={{ flex: 1 }}>
+//         {/* Logo */}
+//         <View style={{ flexDirection: "row", justifyContent: "center" }}>
+//           <Image style={styles.image} source={require("../login/logo.png")} />
+//         </View>
+
+//         {/* Title */}
+//         <View style={{ flexDirection: "row", justifyContent: "center" }}>
+//           <Text style={{ color: "white", fontSize: 20 }}>WELCOME TO PS PRO</Text>
+//         </View>
+
+//         {/* Email Input */}
+//         <View style={[styles.container, { marginTop: 30 }]}>
+//           <Text style={styles.label}>Enter Email</Text>
+//           <TextInput
+//             placeholder="Enter Your Email"
+//             placeholderTextColor="#4d6fa9"
+//             style={styles.textinput}
+//             onChangeText={setEmail}
+//             value={email}
+//             autoCapitalize="none"
+//             keyboardType="email-address"
+//             returnKeyType="next"
+//             onSubmitEditing={() => passwordRef.current.focus()}
+//           />
+//         </View>
+
+//         {/* Password Input */}
+//         <View style={styles.container}>
+//           <Text style={styles.label}>Enter Password</Text>
+//           <TextInput
+//             ref={passwordRef}
+//             secureTextEntry={!showPassword}
+//             placeholder="Enter Your Password"
+//             placeholderTextColor="#4d6fa9"
+//             style={styles.textinput}
+//             onChangeText={setPassword}
+//             value={password}
+//           />
+
+//           <TouchableOpacity
+//             onPress={() => setShowPassword(!showPassword)}
+//             style={{ position: "absolute", right: 25, top: 31 }}
+//           >
+//             {/* <Icon
+//               name={showPassword ? "eye" : "eye-slash"}
+//               size={26}
+//               color="#888"
+//             /> */}
+//             <Icon
+//               name={showPassword ? "eye" : "eye-off"}
+//               size={20}
+//               color="#555"
+//             />
+//           </TouchableOpacity>
+//           {/* <TouchableOpacity onPress={handleSignup} style={{}}> */}
+
+
+//         </View>
+
+//         {/* Login Button */}
+//         {/* <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: "13%" }}> */}
+//         {/* <Custombutton style={{ borderRadius: 20 }} title="Login" onPress={buttonPress} /> */}
+//         {/* <LinearGradient
+//             colors={["#97ADD4", "#4677CB", "#3F6FBF"]}
+
+//           >
+//             <TouchableOpacity style={{
+//               borderRadius: 12,
+//               marginHorizontal: 30,
+//               alignItems: "center",
+//               paddingVertical: 20,
+//               paddingHorizontal: 40,
+//               borderRadius: 20
+//             }}>
+//               <Text style={{ color: "white" }}>Login</Text>
+//             </TouchableOpacity>
+
+//           </LinearGradient>
+//           <View style={{ alignItems: "center" }}>
+
+
+//             <Text style={{ color: "white", marginTop: 8 }}>
+//               Don’t have an account?{" "}
+//               <Text
+//                 style={{ color: "white", textDecorationLine: "underline", fontWeight: "bold" }}
+//                 onPress={handleSignup}
+//               >
+//                 Create Account
+//               </Text>
+//             </Text>
+//           </View>
+//         </View> */}
+//       <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: "13%" }}>
+//   {/* Login Button */}
+//   <Custombutton title="Login" onPress={buttonPress} />
+
+//   {/* Signup Text */}
+//   <View style={{ alignItems: "center", marginTop: 15 }}>
+//     <Text style={{ color: "white", fontSize: 14 }}>
+//       Don’t have an account?{" "}
+//       <Text
+//         style={{
+//           color: "white",
+//           textDecorationLine: "underline",
+//           fontWeight: "bold",
+//         }}
+//         onPress={handleSignup}
+//       >
+//         Create Account
+//       </Text>
+//     </Text>
+//   </View>
+// </View>
+
+
+
+//       </KeyboardAvoidingView>
+//     </SafeAreaView>
+//   );
+// };
+
+// export default Login;
+
+// const styles = StyleSheet.create({
+//   image: {
+//     width: 200,
+//     height: 200,
+//     marginTop: 30,
+//     resizeMode: "contain",
+//   },
+//   label: {
+//     marginBottom: 5,
+//     fontWeight: "bold",
+//     color: "white",
+//     marginLeft: 17,
+//   },
+//   textinput: {
+//     borderWidth: 1,
+//     borderColor: "#ccc",
+//     borderRadius: 5,
+//     padding: 10,
+//     marginHorizontal: 15,
+//     color: "#4d6fa9aaa",
+//     backgroundColor: "white",
+//   },
+//   container: {
+//     marginVertical: 10,
+//   },
+//   linearGradient: {
+//     borderRadius: 12,
+//     marginHorizontal: 20,
+//     alignItems: "center",
+//     paddingVertical: 20,
+//     paddingHorizontal: 30
+
+//   }
+// });
+
+
 import React, { useState, useRef } from "react";
 import {
   StyleSheet,
@@ -813,7 +1048,6 @@ import {
   TextInput,
   ActivityIndicator,
 } from "react-native";
-// import Icon from "react-native-vector-icons/FontAwesome";
 import Custombutton from "../../components/Custombutton";
 import Toast from "react-native-toast-message";
 import { useDispatch, useSelector } from "react-redux";
@@ -822,11 +1056,10 @@ import { SafeAreaView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 
-
 const Login = (props) => {
-  const passwordRef = useRef()
+  const passwordRef = useRef();
   const authState = useSelector((state) => state.auth);
-  console.log(authState)
+  console.log(authState);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth); // persisted user {email, password}
 
@@ -858,20 +1091,10 @@ const Login = (props) => {
     if (email === user.email && password === user.password) {
       dispatch(login()); // just flips isAuthenticated = true
       Toast.show({ type: "success", text1: "Welcome back 👋" });
-      // props.navigation.navigate("Home");  <-- optional
     } else {
       Toast.show({ type: "error", text1: "Invalid email or password" });
     }
   };
-
-  // if (isLoading) {
-  //   return (
-  //     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-  //       <ActivityIndicator size="large" />
-  //     </View>
-  //   );
-  // }
-
 
   const handleSignup = () => props.navigation.navigate("Signup");
 
@@ -907,93 +1130,47 @@ const Login = (props) => {
         {/* Password Input */}
         <View style={styles.container}>
           <Text style={styles.label}>Enter Password</Text>
-          <TextInput
-            ref={passwordRef}
-            secureTextEntry={!showPassword}
-            placeholder="Enter Your Password"
-            placeholderTextColor="#4d6fa9"
-            style={styles.textinput}
-            onChangeText={setPassword}
-            value={password}
-          />
-
-          <TouchableOpacity
-            onPress={() => setShowPassword(!showPassword)}
-            style={{ position: "absolute", right: 25, top: 31 }}
-          >
-            {/* <Icon
-              name={showPassword ? "eye" : "eye-slash"}
-              size={26}
-              color="#888"
-            /> */}
-            <Icon
-              name={showPassword ? "eye" : "eye-off"}
-              size={20}
-              color="#555"
+          <View style={styles.inputWrapper}>
+            <TextInput
+              ref={passwordRef}
+              secureTextEntry={!showPassword}
+              placeholder="Enter Your Password"
+              placeholderTextColor="#4d6fa9"
+              style={[styles.textinput, { flex: 1, marginHorizontal: 0, borderWidth: 0 }]}
+              onChangeText={setPassword}
+              value={password}
             />
-          </TouchableOpacity>
-          {/* <TouchableOpacity onPress={handleSignup} style={{}}> */}
 
-
+            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+              <Icon
+                name={showPassword ? "eye" : "eye-off"}
+                size={22}
+                color="#555"
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
-        {/* Login Button */}
-        {/* <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: "13%" }}> */}
-        {/* <Custombutton style={{ borderRadius: 20 }} title="Login" onPress={buttonPress} /> */}
-        {/* <LinearGradient
-            colors={["#97ADD4", "#4677CB", "#3F6FBF"]}
+        {/* Login + Signup */}
+        <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: "13%" }}>
+          <Custombutton title="Login" onPress={buttonPress} />
 
-          >
-            <TouchableOpacity style={{
-              borderRadius: 12,
-              marginHorizontal: 30,
-              alignItems: "center",
-              paddingVertical: 20,
-              paddingHorizontal: 40,
-              borderRadius: 20
-            }}>
-              <Text style={{ color: "white" }}>Login</Text>
-            </TouchableOpacity>
-
-          </LinearGradient>
-          <View style={{ alignItems: "center" }}>
-
-
-            <Text style={{ color: "white", marginTop: 8 }}>
+          <View style={{ alignItems: "center", marginTop: 15 }}>
+            <Text style={{ color: "white", fontSize: 14 }}>
               Don’t have an account?{" "}
               <Text
-                style={{ color: "white", textDecorationLine: "underline", fontWeight: "bold" }}
+                style={{
+                  color: "white",
+                  textDecorationLine: "underline",
+                  fontWeight: "bold",
+                }}
                 onPress={handleSignup}
               >
                 Create Account
               </Text>
             </Text>
           </View>
-        </View> */}
-      <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: "13%" }}>
-  {/* Login Button */}
-  <Custombutton title="Login" onPress={buttonPress} />
-
-  {/* Signup Text */}
-  <View style={{ alignItems: "center", marginTop: 15 }}>
-    <Text style={{ color: "white", fontSize: 14 }}>
-      Don’t have an account?{" "}
-      <Text
-        style={{
-          color: "white",
-          textDecorationLine: "underline",
-          fontWeight: "bold",
-        }}
-        onPress={handleSignup}
-      >
-        Create Account
-      </Text>
-    </Text>
-  </View>
-</View>
-
-
-
+        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -1026,12 +1203,21 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
   },
+  inputWrapper: {
+    flexDirection: "row",
+    alignItems: "center", // ✅ keeps text + eye icon aligned
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    marginHorizontal: 15,
+    backgroundColor: "white",
+    paddingRight: 10, // space for the eye icon
+  },
   linearGradient: {
     borderRadius: 12,
     marginHorizontal: 20,
     alignItems: "center",
     paddingVertical: 20,
-    paddingHorizontal: 30
-
-  }
+    paddingHorizontal: 30,
+  },
 });
