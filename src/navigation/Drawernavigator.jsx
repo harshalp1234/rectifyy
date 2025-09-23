@@ -12,10 +12,7 @@ import Customdrawercontent from './Customdrawercontent';
 import Icon from 'react-native-vector-icons/Ionicons'; // Example icon set
 import Home from '../screens/home/Home';
 import Document from '../screens/document/Document';
-import Editprofile from '../screens/editprofile/Editprofile';
-
-
-
+import Editprofile from '../screens/editprofile/Editprofile'; 
 
 const Drawernavigator = () => {
   const Drawer = createDrawerNavigator();
@@ -23,12 +20,8 @@ const Drawernavigator = () => {
     <Drawer.Navigator screenOptions={{
       headerTitleAlign: 'center', headerTitleStyle: {
         fontSize: 20,
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
       },
-      // drawerItemStyle: {
-      //   borderBottomWidth: 3, // thin line
-      //   borderBottomColor: "#ccc",
-      // }
       drawerItemStyle: {
         paddingVertical: 9,
         paddingHorizontal: 16,

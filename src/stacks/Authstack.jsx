@@ -6,13 +6,13 @@ import Login from '../screens/login/Login'
 import Signup from '../screens/signup/Signup'
 const Stack = createNativeStackNavigator()
 const Authstack = () => {
-    
+
   return (
     <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
-            <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
-        </Stack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false}} />
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }

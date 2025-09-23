@@ -10,7 +10,6 @@ export default function Customtoast() {
   };
 
   if (!message) return null;
-
   return (
     <View style={styles.box}>
       <Text style={styles.text}>{message}</Text>
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     zIndex: 9999,
-   
+
   },
   text: { color: 'black' },
 });

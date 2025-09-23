@@ -77,12 +77,11 @@ export default function Order() {
         data={products}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
-
         onEndReached={fetchProducts}
         onEndReachedThreshold={0.5}
         refreshing={refreshing}
         onRefresh={handleRefresh}
-        ListFooterComponent={loading ? <ActivityIndicator style={styles.loaderFooter} size="large" color="blue" />:null }
+        ListFooterComponent={loading ? <ActivityIndicator style={styles.loaderFooter} size="large" color="blue" /> : null}
         contentContainerStyle={styles.list}
       />
     </View>
@@ -100,20 +99,61 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
-    elevation: 4,
     overflow: 'hidden'
   },
   textContainer: { padding: 15 },
-  title: { fontSize: 16, fontWeight: '600', color: '#333', marginBottom: 4 },
-  brand: { fontSize: 14, color: '#666', marginBottom: 8 },
-  priceRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 8 },
-  price: { fontSize: 18, fontWeight: 'bold', color: '#2ecc71', marginRight: 8 },
-  discount: { fontSize: 14, color: '#e74c3c', fontWeight: '500' },
-  ratingContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  rating: { fontSize: 14, color: '#f39c12' },
-  stock: { fontSize: 14, color: '#7f8c8d' },
+  title: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 4
+  },
+  brand: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 8
+  },
+  priceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8
+  },
+  price: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2ecc71',
+    marginRight: 8
+  },
+  discount: {
+    fontSize: 14,
+    color: '#e74c3c',
+    fontWeight: '500'
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  rating: {
+    fontSize: 14,
+    color: '#f39c12'
+  },
+  stock: {
+    fontSize: 14,
+    color: '#7f8c8d'
+  },
   loaderFooter: { paddingVertical: 20 },
-  fullScreenLoader: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  emptyContainer: { padding: 20, alignItems: 'center' },
-  emptyText: { fontSize: 16, color: '#666' },
+  fullScreenLoader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  emptyContainer: {
+    padding: 20,
+    alignItems: 'center'
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#666'
+  },
 });

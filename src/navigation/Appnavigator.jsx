@@ -1,26 +1,3 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-// import Logout from '../screens/logout/Logout'
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack'
-// import Login from '../screens/login/Login';
-// const Stack = createNativeStackNavigator();
-// const Appnavigator = () => {
-//   return (
-// <NavigationContainer>
-//   <Stack.Navigator>
-//   <Stack.Screen name="Login" component={Login}/>
-//   </Stack.Navigator>
-// </NavigationContainer>
-//   )
-// }
-
-// export default Appnavigator
-
-// const styles = StyleSheet.create({})
-
-
-
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native'

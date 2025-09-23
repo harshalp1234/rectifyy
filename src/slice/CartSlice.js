@@ -5,7 +5,7 @@ export const fetchCartItems = createAsyncThunk("fetchCartItems",async () =>{
     const res = await fetch("https://fakestoreapi.com/products");
     const result = await res.json();
     console.log("result",JSON.stringify(result))
-    console.log("hey")
+
     return result;
 
 })
@@ -30,7 +30,6 @@ const Cartslice = createSlice({
         state.isError = true;
       });
     },
-
 })
 
 export default Cartslice.reducer;

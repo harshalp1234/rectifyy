@@ -1,4 +1,3 @@
-// newsService.js
 import api from "./api";
 
 const API_KEY = "1140998042ed4758948083833b15c12d";
