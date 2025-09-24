@@ -15,7 +15,6 @@ import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 const Location = () => {
   const [longitude, setLongitude] = useState(null);
   const [latitude, setLatitude] = useState(null);
-
   const getLocation = () => {
     Geolocation.getCurrentPosition(
       (position) => {

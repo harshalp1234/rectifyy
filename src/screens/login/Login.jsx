@@ -20,10 +20,11 @@ const Login = (props) => {
   const passwordRef = useRef();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex =
@@ -41,7 +42,6 @@ const Login = (props) => {
       return Toast.show({ type: "error", text1: "Enter Password" });
     if (!passwordRegex.test(trimmedPassword))
       return Toast.show({ type: "error", text1: "Invalid email or password" });
-
     if (!user) {
       return Toast.show({
         type: "error",
@@ -60,7 +60,7 @@ const Login = (props) => {
   const handleSignup = () => props.navigation.navigate("Signup");
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#4d6fa9" }}>
+    <SafeAreaView style={styles.safeareaview}>
       <KeyboardAwareScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         enableOnAndroid={true}
@@ -70,7 +70,7 @@ const Login = (props) => {
         <View style={{ flex: 1 }}>
           {/* Logo */}
           <View style={{ flexDirection: "row", justifyContent: "center" }}>
-            <Image style={styles.image} source={require("../login/logo.png")} />
+            <Image style={styles.image} source={require("../../assets/images/logo.png")} />
           </View>
 
           {/* Title */}
@@ -118,7 +118,6 @@ const Login = (props) => {
                 onChangeText={(text) => setPassword(text.replace(/^\s+/g, ""))}
                 value={password}
               />
-
               <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <Icon
                   name={showPassword ? "eye" : "eye-off"}
@@ -137,7 +136,21 @@ const Login = (props) => {
             title="Login"
             onPress={buttonPress}
           />
-
+          <View style={{ alignItems: "center", marginTop: 10 }}>
+            <Text style={{ color: "white", fontSize: 14 }}>
+              By continuing, you agree to our{" "}
+              <Text
+                style={{
+                  color: "white",
+                  textDecorationLine: "underline",
+                  fontWeight: "bold",
+                }}
+                onPress={() => props.navigation.navigate("Termsandconditions")}
+              >
+                Terms Of use
+              </Text>
+            </Text>
+          </View>
           <View style={{ alignItems: "center", marginTop: 15 }}>
             <Text style={{ color: "white", fontSize: 14 }}>
               Don’t have an account?{" "}
@@ -162,6 +175,7 @@ const Login = (props) => {
 export default Login;
 
 const styles = StyleSheet.create({
+  safeareaview:{flex: 1, backgroundColor: "#4d6fa9"},
   image: {
     width: 200,
     height: 200,

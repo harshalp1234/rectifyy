@@ -9,6 +9,7 @@ import Drawernavigator from '../navigation/Drawernavigator'
 import Editprofile from '../screens/editprofile/Editprofile'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import Tabnavigator from '../navigation/Tabnavigator'
+
 import { navigationRef } from '../service/navigationsevice'
 const Stack = createNativeStackNavigator()
 

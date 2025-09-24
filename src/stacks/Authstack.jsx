@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import Login from '../screens/login/Login'
 import Signup from '../screens/signup/Signup'
+import Termsandconditions from '../screens/termsandcondition/Termsandcondition'
 const Stack = createNativeStackNavigator()
 const Authstack = () => {
 
@@ -12,6 +13,7 @@ const Authstack = () => {
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false}} />
+        <Stack.Screen name="Termsandconditions" component={Termsandconditions} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
