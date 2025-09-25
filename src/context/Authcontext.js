@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true); // ✅ added
+  const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(null);
 
   // Check token on app start
@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       } catch (e) {
         console.log(e);
       } finally {
-        setIsLoading(false); // ✅ done checking
+        setIsLoading(false); // done checking
       }
     };
     loadToken();

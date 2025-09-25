@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {SafeAreaView,StyleSheet,View,TextInput,TouchableOpacity,Text} from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Icon from "react-native-vector-icons/Feather";
 import Product from '../product/Product';
 import Item from '../item/Item';
 import Customheader from '../../components/Customheader';

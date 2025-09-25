@@ -5,11 +5,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 const Custombutton = ({ onPress, title, style, textStyle }) => {
   return (
-    <LinearGradient
-      colors={["#97ADD4", "#4677CB", "#3F6FBF"]}
-     
-      style={[styles.linearGradient, style]}
-    >
+    <LinearGradient colors={["#97ADD4", "#4677CB", "#3F6FBF"]} style={[styles.linearGradient, style]} >
       <TouchableOpacity
         onPress={onPress}
         activeOpacity={0.8}
@@ -25,10 +21,9 @@ export default Custombutton;
 
 const styles = StyleSheet.create({
   linearGradient: {
-    marginHorizontal: 20,
+    marginHorizontal:20,
     borderRadius: 13,
     shadowRadius: 3,
- 
   },
   buttonContainer: {
     borderRadius: 20,

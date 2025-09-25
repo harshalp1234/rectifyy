@@ -29,7 +29,6 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 export default function Editprofile({ navigation }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-
   const [selectedImage, setSelectedImage] = useState(user?.profilePic || null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -56,7 +55,7 @@ export default function Editprofile({ navigation }) {
   const openSheet = () => bottomSheetModalRef.current?.present();
   const closeSheet = () => bottomSheetModalRef.current?.dismiss();
 
-  // ✅ Camera Permission
+  // Camera Permission
   const requestCameraPermission = async () => {
     if (Platform.OS === "ios") {
       const status = await check(PERMISSIONS.IOS.CAMERA);
@@ -94,7 +93,7 @@ export default function Editprofile({ navigation }) {
     }
   };
 
-  // ✅ Gallery Permission
+  // Gallery Permission
   const requestGalleryPermission = async () => {
     if (Platform.OS === "ios") {
       const status = await check(PERMISSIONS.IOS.PHOTO_LIBRARY);

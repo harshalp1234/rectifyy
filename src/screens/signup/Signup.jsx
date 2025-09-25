@@ -252,8 +252,7 @@ const Signup = (props) => {
             Already have an account?{" "}
             <Text
               style={{ color: "white", textDecorationLine: "underline", fontWeight: "bold" }}
-              onPress={() => props.navigation.goBack("Login")}
-            >
+              onPress={() => props.navigation.goBack("Login")}>
               Login
             </Text>
           </Text>

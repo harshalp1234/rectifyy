@@ -6,18 +6,16 @@ import Toast from 'react-native-toast-message';
 import messaging from '@react-native-firebase/messaging';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
 import { store, persistor } from './src/store/store';
 import Appnav from './src/stacks/Appnav';
 import { AuthProvider } from './src/context/Authcontext';
 import { navigate, navigationRef } from './src/service/navigationsevice';
 import { StatusBar } from 'react-native';
 
-
 const App = () => {
   const [initialNotification, setInitialNotification] = useState(null);
 
-  // 🔹 Request notification permission
+  // Request notification permission
   const requestNotificationPermission = async () => {
     if (Platform.OS === 'android') {
       const granted = await PermissionsAndroid.request(
@@ -30,14 +28,14 @@ const App = () => {
     await getFCMToken();
   };
 
-  // 🔹 Get FCM token
+  // Get FCM token
   const getFCMToken = async () => {
     try {
       await messaging().registerDeviceForRemoteMessages();
       const token = await messaging().getToken();
-      console.log('📲 FCM Token:', token);
+      console.log('FCM Token:', token);
     } catch (e) {
-      console.log('❌ FCM token error:', e);
+      console.log('FCM token error:', e);
     }
   };
 
@@ -72,7 +70,7 @@ const App = () => {
     };
   }, []);
 
-  // 🔹 Navigate to History if app opened from killed state
+  // Navigate to History if app opened from killed state
   useEffect(() => {
     if (!initialNotification) return;
 
@@ -89,10 +87,7 @@ const App = () => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar
-        backgroundColor="#4d6fa9" // your custom color
-        barStyle="light-content"   // for white text/icons
-      />
+      <StatusBar backgroundColor="#4d6fa9" barStyle="light-content" />
       <SafeAreaProvider>
         <AuthProvider>
           <Provider store={store}>

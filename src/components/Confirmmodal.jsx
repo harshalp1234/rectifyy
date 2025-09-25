@@ -3,21 +3,14 @@ import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const ConfirmModal = ({ visible, message, onConfirm, onCancel }) => {
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={visible}
-      onRequestClose={onCancel}
-    >
+    <Modal animationType="fade" transparent={true} visible={visible} onRequestClose={onCancel}>
       <View style={styles.backdrop}>
         <View style={styles.modalContainer}>
           <Text style={styles.message}>{message}</Text>
-
           <View style={styles.buttonRow}>
             <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={onCancel}>
               <Text style={styles.cancelText}>Cancel</Text>
             </TouchableOpacity>
-
             <TouchableOpacity style={[styles.button, styles.confirmButton]} onPress={onConfirm}>
               <Text style={styles.confirmText}>Logout</Text>
             </TouchableOpacity>
@@ -63,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ddd',
   },
   confirmButton: {
-    backgroundColor: '#4d6fa9', // red
+    backgroundColor: '#4d6fa9', 
   },
   cancelText: {
     color: '#555',

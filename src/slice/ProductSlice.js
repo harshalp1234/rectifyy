@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchProducts = createAsyncThunk(
-  "products/fetchProducts",   // ✅ namespaced type
+  "products/fetchProducts",   // namespaced type
   async () => {
     const res = await fetch("https://fakestoreapi.com/products");
     return await res.json();
@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState: {
-    data: [],          // ✅ array instead of null
+    data: [],          // array instead of null
     isLoader: false,
     isError: false,
   },

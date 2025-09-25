@@ -84,7 +84,7 @@ const Product = ({ search, sortBy }) => {
     // Grouping + Sorting dynamically
     const sections = Object.values(
         searchData
-            .sort((a, b) => a[sortBy].localeCompare(b[sortBy])) // 👈 sort by name OR section
+            .sort((a, b) => a[sortBy].localeCompare(b[sortBy])) // sort by name OR section
             .reduce((acc, item) => {
                 const letter = item[sortBy][0].toUpperCase(); // group by first letter of chosen field
                 if (!acc[letter]) acc[letter] = { title: letter, data: [] };

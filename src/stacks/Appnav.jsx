@@ -6,7 +6,7 @@ import Appstack from "./Appstack";
 import SplashScreen from "react-native-splash-screen";
 
 const Appnav = () => {
-  const { isAuthenticated } = useSelector((state) => state.auth); // ✅ check auth status
+  const { isAuthenticated } = useSelector((state) => state.auth); //check auth status
 
   useEffect(() => {
     SplashScreen.hide();

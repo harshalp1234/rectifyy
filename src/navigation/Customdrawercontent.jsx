@@ -27,7 +27,6 @@ const Customdrawercontent = (props) => {
       >
         <Image
           style={styles.profileImage}
-          // source={require("../assets/images/person.jpeg")}
           source={{uri:user.profilePic}}
         />
         <View style={styles.profileTextContainer}>

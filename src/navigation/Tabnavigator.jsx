@@ -1,7 +1,6 @@
 import { StyleSheet, Platform } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/home/Home';
 import History from '../screens/history/History';
 import Location from '../screens/location/Location';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -23,7 +22,6 @@ const Tabnavigator = () => {
           } else if (route.name === 'History') {
             iconName = focused ? 'time' : 'time-outline';
           }
-
           return <Icon name={iconName} size={24} color={color} />;
         },
         headerShown: false,

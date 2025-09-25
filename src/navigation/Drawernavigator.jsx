@@ -1,9 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
-import Tabnavigator from './Tabnavigator';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Settings from '../screens/settings/Settings';
-import Logout from '../screens/logout/Logout';
 import Order from '../screens/orders/Order';
 import Wishlist from '../screens/wishlist/Wishlist';
 import Chatsupport from '../screens/chatsupport/Chatsupport';
@@ -12,32 +9,15 @@ import Customdrawercontent from './Customdrawercontent';
 import Icon from 'react-native-vector-icons/Ionicons'; // Example icon set
 import Home from '../screens/home/Home';
 import Document from '../screens/document/Document';
-import Editprofile from '../screens/editprofile/Editprofile'; 
+
 
 const Drawernavigator = () => {
   const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator screenOptions={{
-      headerTitleAlign: 'center', headerTitleStyle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-      drawerItemStyle: {
-        paddingVertical: 9,
-        paddingHorizontal: 16,
-        borderBottomWidth: StyleSheet.hairlineWidth, // ultra thin divider
-        borderBottomColor: "#e0e0e0", // light grey (Gmail-like)
-      },
-
-      drawerLabelStyle: {
-        fontSize: 16,
-        fontWeight: "500",
-        color: "#202124", // Gmail dark grey text
-      },
-
-      drawerIconStyle: {
-        marginRight: -20, // bring icon closer to text like Gmail
-      },
+      headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'bold' },
+      drawerItemStyle: { paddingVertical: 9, paddingHorizontal: 16, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: "#e0e0e0" },
+      drawerLabelStyle: { fontSize: 16, fontWeight: "500", color: "#202124" }, drawerIconStyle: { marginRight: -20 }
     }}
       drawerContent={(props) => <Customdrawercontent{...props} />} >
 
@@ -71,8 +51,6 @@ const Drawernavigator = () => {
           <Icon name="document-text" color={color} size={size} />
         ),
       }} />
-
-
     </Drawer.Navigator>
   )
 }
