@@ -54,7 +54,7 @@ const Drawernavigator = () => {
     </Drawer.Navigator>
   )
 }
-
+//
 export default Drawernavigator
 
 const styles = StyleSheet.create({})
